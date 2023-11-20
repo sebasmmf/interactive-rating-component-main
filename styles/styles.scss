@@ -1,0 +1,138 @@
+@import "_general";
+
+.text-center { text-align: center; }
+.grid-center { display: grid; place-content: center; }
+.section-styles { height: 100%; width: 100%; padding: 20px; }
+.warning { 
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+    color: $orange;
+    font-size: 10px;
+    text-align: center;
+}
+
+.container {
+    .card {
+        height: 350px;
+        width: 350px;
+        background: linear-gradient($darkBlue -75%, $veryDarkBlue 220%);
+        border-radius: 7.5%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        .rating {
+            @extend .section-styles;
+            .icon {
+                height: 42px;
+                width: 42px;
+                background-color: $darkBlue;
+                border-radius: 50%;
+                @extend .grid-center;
+            }
+            div {
+                h1 {
+                    color: $white;
+                    font-weight: 700;
+                    margin-top: 32px;
+                    
+                }
+                p { 
+                    color: $lightGrey; 
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-top: 10px;
+                }
+            }
+            .form {
+                @include flex(flex, column, center, space-between);
+                width: 100%;
+                .options {
+                    width: 100%;
+                    @include flex(flex, row, center, space-between);
+                    input { 
+                        display: none;
+                        &:checked + label {
+                            color: $white;
+                            background-color: $mediumGrey;
+                            transition: color, background-color, .5s;
+                        }
+                    }
+                    .rating-btn {
+                        @extend .grid-center;
+                        color: $mediumGrey;
+                        background-color: $darkBlue;
+                        height: 42px;
+                        width: 42px;
+                        margin: 24px 0 10px 0;
+                        border-radius: 50%;
+                        font-size: 14px;
+                        &:hover {
+                            cursor: pointer;
+                            color: $white;
+                            background-color: $orange;
+                            transition: color, background-color, 1s;
+                        }
+                    }
+                }
+                .btn-submit {
+                    height: 40px;
+                    width: 100%;
+                    margin-top: 20px;
+                    border: 0;
+                    border-radius: 20px;
+                    color: $white;
+                    background-color: $orange;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    &:hover {
+                        cursor: pointer;
+                        color: $orange;
+                        background-color: $white;
+                        transition: color, background-color, 1s;
+                    }
+                }
+            }
+        }
+        .thanks {
+            @extend .section-styles;
+            @include flex(flex, column, center, space-evenly);
+            display: none;
+            .illustration-ty {
+                height: 100px;
+                width: 150px;
+            }
+            .summary {
+                height: 28px;
+                width: 50%;
+                margin: 5px 0;
+                padding-top: 2px;
+                background-color: $darkBlue;
+                color: $orange;
+                border-radius: 20px;
+                font-size: 12px;
+                display: grid;
+                place-content: center;
+            }
+            div {
+                h1 {
+                    color: $white;
+                    @extend .text-center;
+                    // margin-top: 2px;
+
+                }
+                p {
+                    color: $lightGrey;
+                    @extend .text-center;
+                    font-size: 13.6px;
+                    font-weight: 400;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@import "_footer";

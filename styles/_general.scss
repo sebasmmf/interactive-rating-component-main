@@ -1,0 +1,34 @@
+//Tipography
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+$mainTipography: 'Overpass', sans-serif;;
+
+// Primary Color
+$orange : hsl(25, 97%, 53%);
+
+// Neutral Colors
+$white: hsl(0, 0%, 100%);
+$lightGrey: hsl(217, 12%, 63%);
+$mediumGrey: hsl(216, 12%, 54%);
+$darkBlue: hsl(213, 19%, 18%);
+$veryDarkBlue: hsl(216, 12%, 8%);
+
+@mixin flex($display, $direction, $align, $justify) {
+    display: $display;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: $mainTipography;
+    background-color: $veryDarkBlue;
+    @include flex(flex, column, center, flex-end);
+}
